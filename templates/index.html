@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>QR Code Generator & Scanner</title>
+
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+
+<body>
+    <header>
+        <h1>QRify: Scan & Generate</h1>
+        <p> "QRify: Scan & Generate" – your all-in-one solution for seamless QR code interactions. Whether you're
+            decoding
+            the hidden messages within QR codes or crafting your own personalized codes, QRify empowers you with a
+            user-friendly experience. Effortlessly scan QR codes from products, advertisements, and more to access
+            relevant
+            information in an instant. Meanwhile, unleash your creativity by generating QR codes that encapsulate URLs,
+            text, contact details, and more. With QRify, the world of QR codes is at your fingertips, simplifying
+            connections and sharing information like never before.</p>
+    </header>
+    <div class="options">
+        <p class="generator-head active">Generate QR Code</p>
+        <p class="reader-head">Scan QR Code</p>
+    </div>
+
+    <div class="generator">
+        <form id="generate-form">
+            <label for="data">Data:</label>
+            <input type="text" id="data" name="data"><br>
+            <button type="submit">Generate QR Code</button>
+        </form>
+        <div id="qr-image-container"></div>
+    </div>
+
+    <div class="reader">
+        <div id="scanner-container">
+            <video id="scanner" playsinline></video>
+            <div id="qr-result"></div>
+        </div>
+        <button id="copy-button" style="display: none;">Copy Decoded Text</button>
+        <button id="scan-again">Scan Again</button>
+    </div>
+
+    <script>
+        const generator = document.getElementsByClassName('generator')[0]
+        const reader = document.getElementsByClassName('reader')[0]
+        const generate_head = document.getElementsByClassName('generator-head')[0]
+        const reader_head = document.getElementsByClassName('reader-head')[0]
+        reader.style.display = 'none'
+
+        reader_head.addEventListener('click', () => {
+            reader_head.classList.add('active')
+            generate_head.classList.remove('active')
+            reader.style.display = 'block'
+            generator.style.display = 'none'
+        })
+        generate_head.addEventListener('click', () => {
+            generate_head.classList.add('active')
+            reader_head.classList.remove('active')
+            reader.style.display = 'none'
+            generator.style.display = 'block'
+        })
+
+    </script>
+    <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>

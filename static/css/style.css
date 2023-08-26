@@ -1,0 +1,75 @@
+body {
+  background-color: rgb(22, 22, 22);
+  color: rgb(229, 229, 229);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10%;
+}
+.options p {
+  font-size: 20px;
+  padding: 5px 10px;
+  transition: 0.7s;
+  border-radius: 20px;
+}
+.options p:hover {
+  background-color: rgb(229, 229, 229);
+  color: rgb(22, 22, 22);
+  transform: translateY(-5px);
+}
+.active {
+  color: rgb(22, 22, 22);
+  background-color: rgb(229, 229, 229);
+}
+header {
+  width: 90%;
+}
+.generator label,
+input,
+button {
+  font-size: 18px;
+}
+input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgb(229, 229, 229);
+  outline: none;
+  color: rgb(229, 229, 229);
+}
+.generator button,
+.reader button {
+  margin: 20px;
+  background: rgb(229, 229, 229);
+  border: none;
+  border-radius: 20px;
+  padding: 5px 10px;
+  transition: 0.5s;
+}
+.generator button:hover,
+.reader button:hover {
+  transform: translateY(-5px);
+  background-color: rgb(36, 36, 36);
+  color: rgb(229, 229, 229);
+  border: 1px SOLID rgb(229, 229, 229);
+}
+#qr-image-container img {
+  border-radius: 20px;
+}
+.reader video {
+  border: none;
+  width: 75%;
+  height: auto;
+}
+.reader #qr-result {
+  font-size: 18px;
+}
+.reader button {
+  display: inline-block;
+}
